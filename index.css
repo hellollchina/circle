@@ -1,0 +1,90 @@
+*{
+    padding: 0;
+}
+
+div{
+    display: inline-block;
+}
+
+/*方法一：大圆套小圆*/
+#method1 .bigCircle{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+#method1 .smallCircle{
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    left: 20px;  /*大圆width/2 - 小圆width/2：200/2 - 160/2 = 20*/
+    top: 20px;
+}
+
+/* 方法二：使用border */
+#method2 .circle{
+    width: 160px;
+    height: 160px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 20px solid green;
+}
+
+/* 方法三：使用伪元素 */
+#method3 .circle{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: yellow;
+    position: relative;
+}
+
+#method3 .circle:after{
+    content: '';
+    display: block;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+/* 方法四：使用box-shadow */
+/* 向外扩散 */
+#method4 .circle1{
+    position: relative;
+    top: -20px;
+    left:20px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 0 0 20px blue;  /*x偏移量 y偏移量 阴影模糊半径 阴影颜色*/
+}
+
+/* 向内扩散 */
+#method4 .circle2{
+    position: relative;
+    left:40px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 0 0 20px #5e6020 inset;  /*x偏移量 y偏移量 阴影模糊半径 阴影颜色 向内扩散*/
+}
+
+/* 方法五：使用radial-gradient */
+#method5{
+    position: relative;
+    left: 40px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: -webkit-radial-gradient( circle closest-side,#fff 80%,lightpink 20%);
+}
